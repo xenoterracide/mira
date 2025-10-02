@@ -11,7 +11,8 @@
     "prettier-plugin-java": "^2.7.5",
     "prettier-plugin-properties": "^0.3.0",
     "prettier-plugin-sh": "^0.18.0",
-    "prettier-plugin-toml": "^2.0.6"
+    "prettier-plugin-toml": "^2.0.6",
+    "vite": "^7.1.7"
   },
   "scripts": {
     "postinstall": "pip install -r requirements.txt && git config core.hooksPath .config/git/hooks"
