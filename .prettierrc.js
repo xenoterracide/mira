@@ -6,11 +6,5 @@
 module.exports = {
   printWidth: 120,
   xmlWhitespaceSensitivity: "ignore",
-  plugins: [
-    require.resolve("@prettier/plugin-xml"),
-    require.resolve("prettier-plugin-properties"),
-    require.resolve("prettier-plugin-java"),
-    require.resolve("prettier-plugin-toml"),
-    require.resolve("prettier-plugin-sh"),
-  ],
+  plugins: [require.resolve("prettier-plugin-toml"), require.resolve("prettier-plugin-sh")],
 };
