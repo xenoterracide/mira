@@ -5,6 +5,5 @@
 /** @type {import('prettier').Options} */
 module.exports = {
   printWidth: 120,
-  xmlWhitespaceSensitivity: "ignore",
   plugins: [require.resolve("prettier-plugin-toml"), require.resolve("prettier-plugin-sh")],
 };
