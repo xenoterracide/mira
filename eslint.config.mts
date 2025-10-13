@@ -23,6 +23,15 @@ export default defineConfig([
   {
     files: ["module/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     ...pluginReact.configs.flat.recommended,
+    settings: {
+      react: {
+        version: "detect",
+        jsxRuntime: "automatic",
+      },
+    },
+    rules: {
+      "react/react-in-jsx-scope": "off",
+    },
   },
   { files: ["**/*.json"], plugins: { json }, language: "json/json", extends: ["json/recommended"] },
   { files: ["**/*.json5"], plugins: { json }, language: "json/json5", extends: ["json/recommended"] },
