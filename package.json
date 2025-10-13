@@ -28,6 +28,6 @@
     "postinstall": "pip install -r requirements.txt && git config core.hooksPath .config/git/hooks"
   },
   "workspaces": [
-    "packages/*"
+    "module/*"
   ]
 }

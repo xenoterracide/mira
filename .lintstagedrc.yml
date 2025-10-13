@@ -4,8 +4,12 @@
 
 # Software
 "*.{mts,mtsx,ts,tsx}":
-  - "reuse annotate --license 'AGPL-3.0-or-later' --copyright 'Caleb Cushing' --copyright-prefix spdx-string-symbol --merge-copyrights"
+  - "reuse annotate --license 'AGPL-3.0-or-later' --copyright 'Caleb Cushing' --copyright-prefix spdx-string-symbol --merge-copyrights --style cpp"
   - &prettier "prettier --cache --ignore-unknown --write"
+# Web
+"*.{html,css}":
+  - "reuse annotate --license 'AGPL-3.0-or-later' --copyright 'Caleb Cushing' --copyright-prefix spdx-string-symbol --merge-copyrights"
+  - *prettier
 # Shell scripts
 "{.config/git/hooks/*,*.sh}":
   - "reuse annotate --license 'MIT' --copyright 'Caleb Cushing' --copyright-prefix spdx-string-symbol --merge-copyrights --style python"
