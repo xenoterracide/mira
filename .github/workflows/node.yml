@@ -39,4 +39,5 @@ jobs:
       - *setup-corepack
       - *setup-node2
       - *yarn-install
+      - run: yarn exec eslint --env-info
       - run: yarn exec eslint
