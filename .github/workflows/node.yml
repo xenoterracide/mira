@@ -2,6 +2,23 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
+setup-yarn: &setup-yarn
+  - uses: actions/checkout@v5.0.0
+    with:
+      ref: ${{ github.event.workflow_run.head_branch }}
+      filter: "blob:none"
+      fetch-depth: 0
+  - uses: actions/setup-node@v6.0.0
+    with:
+      node-version: 24
+      package-manager-cache: false
+  - run: corepack enable
+  - uses: actions/setup-node@v6.0.0
+    with:
+      node-version: 24
+      cache: "yarn"
+  - run: yarn install --immutable --inline-builds --check-resolutions
+
 name: precommit
 on: [push, workflow_call]
 jobs:
@@ -9,34 +26,11 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - &checkout-step
-        uses: actions/checkout@v5.0.0
-        with:
-          ref: ${{ github.event.workflow_run.head_branch }}
-          filter: "blob:none"
-          fetch-depth: 0
-      - &setup-node1
-        uses: actions/setup-node@v6.0.0
-        with:
-          node-version: 24
-          package-manager-cache: false
-      - &setup-corepack
-        run: corepack enable
-      - &setup-node2
-        uses: actions/setup-node@v6.0.0
-        with:
-          node-version: 24
-          cache: "yarn"
-      - &yarn-install
-        run: yarn install --immutable --inline-builds --check-resolutions
+      - *setup-yarn
       - run: yarn exec prettier --ignore-unknown --check '**'
   eslint:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - *checkout-step
-      - *setup-node1
-      - *setup-corepack
-      - *setup-node2
-      - *yarn-install
+      - *setup-yarn
       - run: yarn exec eslint
