@@ -3,10 +3,12 @@
 # SPDX-License-Identifier: CC0-1.0
 
 version = 1
+
 [[annotations]]
 path = "**/*.lockfile"
 SPDX-FileCopyrightText = "NONE"
 SPDX-License-Identifier = "CC0-1.0"
+
 [[annotations]]
 path = "**/requirements.txt"
 SPDX-FileCopyrightText = "NONE"
@@ -16,11 +18,18 @@ SPDX-License-Identifier = "CC0-1.0"
 path = "yarn.lock"
 SPDX-FileCopyrightText = "NONE"
 SPDX-License-Identifier = "CC0-1.0"
+
 [[annotations]]
 path = ".tool-versions"
 SPDX-FileCopyrightText = "NONE"
 SPDX-License-Identifier = "CC0-1.0"
+
 [[annotations]]
 path = "gradle/wrapper/gradle-wrapper.jar"
 SPDX-FileCopyrightText = "See MANIFEST.MF in jar"
 SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "module/app/**/*.svg"
+SPDX-FileCopyrightText = "Original Authors"
+SPDX-License-Identifier = "MIT"
