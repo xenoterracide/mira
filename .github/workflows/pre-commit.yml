@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - &checkout-step
-        uses: actions/checkout@v5.0.0
+      - uses: actions/checkout@v5.0.0
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
           filter: "blob:none"
@@ -20,19 +19,4 @@ jobs:
           python-version: "3"
       - run: pip install -r requirements.txt
       - run: reuse lint
-  format:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 5
-    steps:
-      - *checkout-step
-      - uses: actions/setup-node@v6.0.0
-        with:
-          node-version: 24
-          package-manager-cache: false
-      - run: corepack enable
-      - uses: actions/setup-node@v6.0.0
-        with:
-          node-version: 24
-          cache: "yarn"
-      - run: yarn install --immutable --inline-builds --check-resolutions
-      - run: yarn exec prettier --ignore-unknown --check '**'
+# see node.yml for format
