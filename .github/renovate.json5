@@ -7,20 +7,7 @@
   extends: ["config:recommended"],
   dependencyDashboard: true,
   automergeStrategy: "rebase",
-  hostRules: [
-    {
-      hostType: "maven",
-      matchHost: "https://maven.pkg.github.com",
-    },
-  ],
   packageRules: [
-    {
-      // remember to sync with update-java
-      // Run every day at 4am
-      schedule: ["* 4 * * *"],
-      matchManagers: ["gradle", "gradle-wrapper"],
-      enabled: false,
-    },
     {
       matchManagers: ["github-actions"],
       automerge: true,

@@ -36,14 +36,3 @@ jobs:
           cache: "yarn"
       - run: yarn install --immutable --inline-builds --check-resolutions
       - run: yarn exec prettier --ignore-unknown --check '**'
-  format-kotlin:
-    runs-on: ubuntu-24.04
-    steps:
-      - *checkout-step
-      - uses: actions/setup-java@v5.0.0
-        with:
-          distribution: temurin
-          java-version: 21
-      - uses: asdf-vm/actions/plugins-add@v4.0.0
-      - run: asdf install ktlint
-      - run: ktlint '*.gradle.kts' '**/*.gradle.kts'
