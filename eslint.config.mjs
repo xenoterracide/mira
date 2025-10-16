@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import js from "@eslint/js";
+// @ts-check
+import eslint from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
@@ -12,12 +13,11 @@ import css from "@eslint/css";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(["*.pnp.*"]),
+  globalIgnores([".yarn/", ".pnp.*", "node_modules/", "dist/", "build/"]),
   {
     files: ["module/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    plugins: { js },
-    extends: ["js/recommended"],
     languageOptions: { globals: globals.browser },
+    ...eslint.configs.recommended,
   },
   tseslint.configs.recommended,
   {
@@ -33,14 +33,14 @@ export default defineConfig([
       "react/react-in-jsx-scope": "off",
     },
   },
-  { files: ["**/*.json"], plugins: { json }, language: "json/json", extends: ["json/recommended"] },
+  { files: ["**/*.json"], plugins: { json }, language: "json/json", ...json.configs.recommended },
+  { files: ["**/*.json5"], plugins: { json }, language: "json/json5", ...json.configs.recommended },
   {
     files: ["**/*.jsonc", "**/tsconfig.*.json"],
     plugins: { json },
     language: "json/jsonc",
-    extends: ["json/recommended"],
+    ...json.configs.recommended,
   },
-  { files: ["**/*.json5"], plugins: { json }, language: "json/json5", extends: ["json/recommended"] },
   { files: ["**/*.md"], plugins: { markdown }, language: "markdown/gfm", extends: ["markdown/recommended"] },
-  { files: ["**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"] },
+  { files: ["**/*.css"], plugins: { css }, language: "css/css", ...css.configs.recommended },
 ]);
