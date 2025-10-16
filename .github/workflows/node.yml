@@ -16,16 +16,16 @@ jobs:
           filter: "blob:none"
           fetch-depth: 0
       - &setup-node1
-        uses: actions/setup-node@v6.0.0
+        uses: actions/setup-node@v5.0.0
         with:
-          node-version: 22
+          node-version: 24
           package-manager-cache: false
       - &setup-corepack
         run: corepack enable
       - &setup-node2
-        uses: actions/setup-node@v6.0.0
+        uses: actions/setup-node@v5.0.0
         with:
-          node-version: 22
+          node-version: 24
           cache: "yarn"
       - &yarn-install
         run: yarn install --immutable --inline-builds --check-resolutions
