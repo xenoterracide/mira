@@ -33,14 +33,14 @@ export default defineConfig([
       "react/react-in-jsx-scope": "off",
     },
   },
-  { files: ["**/*.json"], plugins: { json }, language: "json/json", extends: ["json/recommended"] },
-  { files: ["**/*.json5"], plugins: { json }, language: "json/json5", extends: ["json/recommended"] },
+  { files: ["**/*.json"], plugins: { json }, language: "json/json", ...json.configs.recommended },
+  { files: ["**/*.json5"], plugins: { json }, language: "json/json5", ...json.configs.recommended },
   {
     files: ["**/*.jsonc", "**/tsconfig.*.json"],
     plugins: { json },
     language: "json/jsonc",
-    extends: ["json/recommended"],
+    ...json.configs.recommended,
   },
   { files: ["**/*.md"], plugins: { markdown }, language: "markdown/gfm", extends: ["markdown/recommended"] },
-  { files: ["**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"] },
+  { files: ["**/*.css"], plugins: { css }, language: "css/css", ...css.configs.recommended },
 ]);
