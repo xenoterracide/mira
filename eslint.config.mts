@@ -12,7 +12,7 @@ import css from "@eslint/css";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(["*.pnp.*"]),
+  globalIgnores([".yarn/", ".pnp.*", "node_modules/", "dist/", "build/"]),
   {
     files: ["module/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     plugins: { js },
