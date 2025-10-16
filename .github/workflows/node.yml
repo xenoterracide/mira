@@ -18,14 +18,14 @@ jobs:
       - &setup-node1
         uses: actions/setup-node@v6.0.0
         with:
-          node-version: 24
+          node-version: 22
           package-manager-cache: false
       - &setup-corepack
         run: corepack enable
       - &setup-node2
         uses: actions/setup-node@v6.0.0
         with:
-          node-version: 24
+          node-version: 22
           cache: "yarn"
       - &yarn-install
         run: yarn install --immutable --inline-builds --check-resolutions
