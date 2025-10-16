@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import js from "@eslint/js";
+// @ts-check
+import eslint from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
@@ -15,9 +16,8 @@ export default defineConfig([
   globalIgnores([".yarn/", ".pnp.*", "node_modules/", "dist/", "build/"]),
   {
     files: ["module/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    plugins: { js },
-    extends: ["js/recommended"],
     languageOptions: { globals: globals.browser },
+    ...eslint.configs.recommended,
   },
   tseslint.configs.recommended,
   {
