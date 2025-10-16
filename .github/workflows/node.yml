@@ -43,10 +43,5 @@ jobs:
           yarn why eslint
           yarn why @eslint/json
           yarn why @eslint/config-helpers
-
-          # Print the exact resolved versions
-          yarn node -p "require('eslint/package.json').version"
-          yarn node -p "require('@eslint/json/package.json').version"
-          yarn node -p "require('@eslint/config-helpers/package.json').version"
           yarn exec eslint --env-info
       - run: yarn exec eslint
