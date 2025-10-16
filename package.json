@@ -4,6 +4,7 @@
   "private": true,
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
+    "@eslint/config-helpers": "^0.4.0",
     "@eslint/css": "^0.13.0",
     "@eslint/js": "^9.37.0",
     "@eslint/json": "^0.13.2",

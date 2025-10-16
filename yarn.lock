@@ -2410,6 +2410,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend@workspace:."
   dependencies:
+    "@eslint/config-helpers": "npm:^0.4.0"
     "@eslint/css": "npm:^0.13.0"
     "@eslint/js": "npm:^9.37.0"
     "@eslint/json": "npm:^0.13.2"
