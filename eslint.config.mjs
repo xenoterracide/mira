@@ -17,9 +17,19 @@ export default defineConfig([
   {
     files: ["module/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     languageOptions: { globals: globals.browser },
+    extends: [tseslint.configs.disableTypeChecked],
     ...eslint.configs.recommended,
   },
-  tseslint.configs.recommended,
+  tseslint.configs.strictTypeChecked,
+  {
+    files: ["module/**/*.{ts,mts,cts,tsx}"],
+    languageOptions: {
+      globals: globals.browser,
+      parserOptions: {
+        projectService: true,
+      },
+    },
+  },
   {
     files: ["module/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     ...pluginReact.configs.flat.recommended,
@@ -29,18 +39,43 @@ export default defineConfig([
         jsxRuntime: "automatic",
       },
     },
+    extends: [tseslint.configs.disableTypeChecked],
     rules: {
       "react/react-in-jsx-scope": "off",
     },
   },
-  { files: ["**/*.json"], plugins: { json }, language: "json/json", ...json.configs.recommended },
-  { files: ["**/*.json5"], plugins: { json }, language: "json/json5", ...json.configs.recommended },
+  {
+    files: ["**/*.json"],
+    plugins: { json },
+    language: "json/json",
+    extends: [tseslint.configs.disableTypeChecked],
+    ...json.configs.recommended,
+  },
+  {
+    files: ["**/*.json5"],
+    plugins: { json },
+    language: "json/json5",
+    extends: [tseslint.configs.disableTypeChecked],
+    ...json.configs.recommended,
+  },
   {
     files: ["**/*.jsonc", "**/tsconfig.*.json"],
     plugins: { json },
     language: "json/jsonc",
+    extends: [tseslint.configs.disableTypeChecked],
     ...json.configs.recommended,
   },
-  { files: ["**/*.md"], plugins: { markdown }, language: "markdown/gfm", extends: ["markdown/recommended"] },
-  { files: ["**/*.css"], plugins: { css }, language: "css/css", ...css.configs.recommended },
+  {
+    files: ["**/*.md"],
+    plugins: { markdown },
+    language: "markdown/gfm",
+    extends: ["markdown/recommended", tseslint.configs.disableTypeChecked],
+  },
+  {
+    files: ["**/*.css"],
+    plugins: { css },
+    language: "css/css",
+    extends: [tseslint.configs.disableTypeChecked],
+    ...css.configs.recommended,
+  },
 ]);
