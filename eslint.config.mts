@@ -7,7 +7,6 @@ import eslint from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
-import css from "@eslint/css";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
@@ -39,10 +38,5 @@ export default defineConfig([
     rules: {
       "react/react-in-jsx-scope": "off",
     },
-  },
-  {
-    files: ["**/*.css"],
-    language: "css/css",
-    extends: [css.configs.recommended],
   },
 ]);
