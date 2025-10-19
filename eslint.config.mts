@@ -52,5 +52,8 @@ export default defineConfig([
     },
   },
   markdown.configs.recommended,
-  css.configs.recommended,
+  {
+    files: ["**/*.css"],
+    extends: [css.configs.recommended],
+  },
 ]);
