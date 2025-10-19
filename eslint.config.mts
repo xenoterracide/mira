@@ -54,21 +54,22 @@ export default defineConfig([
   },
   {
     files: ["**/*.json"],
+    ignores: ["**/tsconfig*.json"],
     plugins: { json },
     language: "json/json",
-    extends: [json.configs.recommended],
+    ...json.configs.recommended,
   },
   {
     files: ["**/*.json5"],
     plugins: { json },
     language: "json/json5",
-    extends: [json.configs.recommended],
+    ...json.configs.recommended,
   },
   {
-    files: ["**/*.jsonc", "**/tsconfig.*.json"],
+    files: ["**/*.jsonc", "**/tsconfig*.json"],
     plugins: { json },
     language: "json/jsonc",
-    extends: [json.configs.recommended],
+    ...json.configs.recommended,
   },
   {
     files: ["**/*.md"],
