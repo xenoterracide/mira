@@ -14,23 +14,13 @@ import { defineConfig, globalIgnores } from "eslint/config";
 export default defineConfig([
   globalIgnores([".yarn/", ".pnp.*", "dist/", "build/"]),
   {
-    files: ["module/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+    files: ["module/**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}"],
     languageOptions: { globals: globals.browser },
     ...eslint.configs.recommended,
   },
   {
     files: ["module/**/*.{ts,mts,cts,tsx}"],
-    extends: [tseslint.configs.strictTypeChecked],
-    languageOptions: {
-      globals: globals.browser,
-      parserOptions: {
-        projectService: true,
-      },
-    },
-  },
-  {
-    files: ["module/**/*.{ts,mts,cts,tsx}"],
-    extends: [tseslint.configs.stylisticTypeChecked],
+    extends: [tseslint.configs.strictTypeChecked, tseslint.configs.stylisticTypeChecked],
     languageOptions: {
       globals: globals.browser,
       parserOptions: {
@@ -54,7 +44,7 @@ export default defineConfig([
   markdown.configs.recommended,
   {
     files: ["**/*.css"],
-    language: "css/css"
+    language: "css/css",
     extends: [css.configs.recommended],
   },
 ]);
