@@ -7,7 +7,6 @@ import eslint from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
-import markdown from "@eslint/markdown";
 import css from "@eslint/css";
 import { defineConfig, globalIgnores } from "eslint/config";
 
@@ -41,7 +40,6 @@ export default defineConfig([
       "react/react-in-jsx-scope": "off",
     },
   },
-  markdown.configs.recommended,
   {
     files: ["**/*.css"],
     language: "css/css",
