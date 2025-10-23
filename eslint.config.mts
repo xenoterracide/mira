@@ -6,8 +6,10 @@ import eslint from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
-import css from "@eslint/css";
+import cssPluginImport from "@eslint/css";
 import { defineConfig, globalIgnores } from "eslint/config";
+
+const cssPlugin = (cssPluginImport as any)?.default ?? cssPluginImport;
 
 export default defineConfig([
   globalIgnores([".yarn/", ".pnp.*", "dist/", "build/"]),
@@ -41,8 +43,8 @@ export default defineConfig([
   },
   {
     files: ["**/*.css"],
-    plugins: { css },
+    plugins: { css: cssPlugin },
     language: "css/css",
-    extends: [css.configs.recommended],
+    extends: [cssPlugin.configs.recommended],
   },
 ]);
