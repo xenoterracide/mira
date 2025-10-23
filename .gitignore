@@ -168,5 +168,4 @@ dist
 
 # Typescript as default
 *.mjs
-!eslint.config.mjs
 *.cjs
