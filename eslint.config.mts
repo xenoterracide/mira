@@ -8,6 +8,7 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import cssPluginImport from "@eslint/css";
 import jsonPluginImport from "@eslint/json";
+import markdown from "@eslint/markdown";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 const cssPlugin = (cssPluginImport as any)?.default ?? cssPluginImport;
@@ -67,5 +68,11 @@ export default defineConfig([
     plugins: { css: cssPlugin },
     language: "css/css",
     extends: [cssPlugin.configs.recommended],
+  },
+  {
+    files: ["**/*.md"],
+    plugins: { markdown },
+    language: "markdown/gfm",
+    extends: [markdown.configs.recommended],
   },
 ]);
