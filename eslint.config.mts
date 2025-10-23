@@ -7,9 +7,11 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import cssPluginImport from "@eslint/css";
+import jsonPluginImport from "@eslint/json";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 const cssPlugin = (cssPluginImport as any)?.default ?? cssPluginImport;
+const jsonPlugin = (jsonPluginImport as any)?.default ?? jsonPluginImport;
 
 export default defineConfig([
   globalIgnores([".yarn/", ".pnp.*", "dist/", "build/"]),
@@ -40,6 +42,25 @@ export default defineConfig([
     rules: {
       "react/react-in-jsx-scope": "off",
     },
+  },
+  {
+    files: ["**/*.json"],
+    ignores: ["**/tsconfig*.json"],
+    plugins: { json: jsonPlugin },
+    language: "json/json",
+    ...jsonPlugin.configs.recommended,
+  },
+  {
+    files: ["**/*.json5"],
+    plugins: { json: jsonPlugin },
+    language: "json/json5",
+    ...jsonPlugin.configs.recommended,
+  },
+  {
+    files: ["**/*.jsonc", "**/tsconfig*.json"],
+    plugins: { json: jsonPlugin },
+    language: "json/jsonc",
+    ...jsonPlugin.configs.recommended,
   },
   {
     files: ["**/*.css"],
