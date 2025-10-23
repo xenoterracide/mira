@@ -3,9 +3,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // SPDX-License-Identifier: CC0-1.0
 
-// @ts-ignore esModuleInterop
+// @ts-expect-error: prettier-plugin-toml does not provide ESModule-compatible types or default export; imported as CommonJS
 import * as toml from "prettier-plugin-toml";
-// @ts-ignore esModuleInterop
+// @ts-expect-error: prettier-plugin-sh does not provide ESModule-compatible types or default export; imported as CommonJS
 import * as sh from "prettier-plugin-sh";
 
 export default {
