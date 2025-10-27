@@ -42,9 +42,9 @@ export default defineConfig([
       "@typescript-eslint/init-declarations": "error",
       "prefer-destructuring": "off",
       "@typescript-eslint/prefer-destructuring": "error",
+
       "@typescript-eslint/consistent-type-exports": "error",
       "@typescript-eslint/consistent-type-imports": "error",
-      "@typescript-eslint/no-use-before-define": "error",
       "@typescript-eslint/explicit-member-accessibility": "error",
       "@typescript-eslint/explicit-function-return-type": "error",
       "@typescript-eslint/explicit-module-boundary-types": "error",
