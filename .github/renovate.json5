@@ -27,7 +27,7 @@
     {
       // Run every Wednesday
       // Single run at 04:00 UTC (after update-java windows used elsewhere)
-      schedule: ["0 4 * * 3"],
+      schedule: ["* 4 * * 3"],
       matchManagers: ["npm", "pip-compile", "asdf"],
       groupName: "devDependencies",
       matchUpdateTypes: ["minor", "patch", "pin"],
