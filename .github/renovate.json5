@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Copyright © 2024 - 2025 Caleb Cushing
+// SPDX-FileCopyrightText: Copyright © 2024, 2025 Caleb Cushing
 //
 // SPDX-License-Identifier: CC0-1.0
 
@@ -6,6 +6,7 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["config:recommended"],
   dependencyDashboard: true,
+  timezone: "UTC",
   automergeStrategy: "rebase",
   packageRules: [
     {
@@ -14,8 +15,9 @@
     },
     {
       // Run every Wednesday
-      schedule: ["* * * * 3"],
-      matchManagers: ["npm", "pip_requirements", "asdf"],
+      // Single run at 04:00 UTC (after update-java windows used elsewhere)
+      schedule: ["0 4 * * 3"],
+      matchManagers: ["npm", "pip-compile", "asdf"],
       groupName: "devDependencies",
       matchUpdateTypes: ["minor", "patch", "pin"],
       automerge: true,
