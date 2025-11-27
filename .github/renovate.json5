@@ -26,7 +26,7 @@
     },
     {
       // Run every Wednesday
-      // Single run at 04:00 UTC (after update-java windows used elsewhere)
+      // Window: 04:00 UTC hour on Wednesday (Renovate cron uses '*' for minutes)
       schedule: ["* 4 * * 3"],
       matchManagers: ["npm", "pip-compile", "asdf"],
       groupName: "devDependencies",
