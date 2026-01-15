@@ -16,14 +16,14 @@ jobs:
           filter: "blob:none"
           fetch-depth: 0
       - &setup-node1
-        uses: actions/setup-node@v6.1.0
+        uses: actions/setup-node@v6.2.0
         with:
           node-version: 24
           package-manager-cache: false
       - &setup-corepack
         run: corepack enable
       - &setup-node2
-        uses: actions/setup-node@v6.1.0
+        uses: actions/setup-node@v6.2.0
         with:
           node-version: 24
           cache: "yarn"
