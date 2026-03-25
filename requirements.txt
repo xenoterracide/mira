@@ -4,7 +4,7 @@
 #
 #    pip-compile --cert=None --client-cert=None --index-url=None --output-file=requirements.txt --pip-args=None requirements.in
 #
-attrs==25.4.0
+attrs==26.1.0
     # via reuse
 boolean-py==5.0
     # via license-expression
