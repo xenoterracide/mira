@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Copyright © 2024 - 2025 Caleb Cushing
+// SPDX-FileCopyrightText: Copyright © 2024, 2025 Caleb Cushing
 //
 // SPDX-License-Identifier: CC0-1.0
 
@@ -6,16 +6,29 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["config:recommended"],
   dependencyDashboard: true,
+  timezone: "UTC",
   automergeStrategy: "rebase",
+  // Managers config will be set via packageRules below
   packageRules: [
+    {
+      // Use pip-compile with PEP 621 pyproject at repo root
+      matchManagers: ["pip-compile"],
+      managerFilePatterns: ["^pyproject\\.toml$"],
+    },
+    {
+      // Disable legacy requirements manager; we use pip-compile with PEP 621
+      matchManagers: ["pip_requirements"],
+      enabled: false,
+    },
     {
       matchManagers: ["github-actions"],
       automerge: true,
     },
     {
       // Run every Wednesday
-      schedule: ["* * * * 3"],
-      matchManagers: ["npm", "pip_requirements", "asdf"],
+      // Window: 04:00 UTC hour on Wednesday (Renovate cron uses '*' for minutes)
+      schedule: ["* 4 * * 3"],
+      matchManagers: ["npm", "pip-compile", "asdf"],
       groupName: "devDependencies",
       matchUpdateTypes: ["minor", "patch", "pin"],
       automerge: true,
