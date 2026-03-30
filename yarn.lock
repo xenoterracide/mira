@@ -628,24 +628,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/css-tree@npm:^3.6.6":
-  version: 3.6.6
-  resolution: "@eslint/css-tree@npm:3.6.6"
+"@eslint/css-tree@npm:^3.6.9":
+  version: 3.6.9
+  resolution: "@eslint/css-tree@npm:3.6.9"
   dependencies:
     mdn-data: "npm:2.23.0"
     source-map-js: "npm:^1.0.1"
-  checksum: 10c0/df7ff781d58a39ac7782de007dc388bdb4822d9e4305d491065125e78054cf6b3cf12951eff87a1002b8d864f391a9c3b35d62dc66619c9bab7721dda72a2056
+  checksum: 10c0/5dd436fb6e9aa2cc3a00252cea6287f78fde1cba664894fc9b46c4817f23d5d5614bfbe55decd05ae062877b80a653bc73106e8e3ca311d4ff18e2baa9e71634
   languageName: node
   linkType: hard
 
-"@eslint/css@npm:^0.14.0":
-  version: 0.14.1
-  resolution: "@eslint/css@npm:0.14.1"
+"@eslint/css@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "@eslint/css@npm:1.1.0"
   dependencies:
-    "@eslint/core": "npm:^0.17.0"
-    "@eslint/css-tree": "npm:^3.6.6"
-    "@eslint/plugin-kit": "npm:^0.4.1"
-  checksum: 10c0/d34db99115792dc01e5357c6d8661e706364d698646f896f3797f4c5e1c977426aacb87eecf552d2037cee50a56b79fbb2b570b7a489066c5518342912bc7948
+    "@eslint/core": "npm:^1.1.1"
+    "@eslint/css-tree": "npm:^3.6.9"
+    "@eslint/plugin-kit": "npm:^0.6.1"
+  checksum: 10c0/db030c25e3ea242226ed5af72d0126903185580af3bc22e4a7e4561c5d35b62c9a23791cc97d5e90c41feabeb55efa6fb2414e333e7eb0bb3954d0cd23b4d3b4
   languageName: node
   linkType: hard
 
@@ -716,6 +716,16 @@ __metadata:
     "@eslint/core": "npm:^0.17.0"
     levn: "npm:^0.4.1"
   checksum: 10c0/51600f78b798f172a9915dffb295e2ffb44840d583427bc732baf12ecb963eb841b253300e657da91d890f4b323d10a1bd12934bf293e3018d8bb66fdce5217b
+  languageName: node
+  linkType: hard
+
+"@eslint/plugin-kit@npm:^0.6.1":
+  version: 0.6.1
+  resolution: "@eslint/plugin-kit@npm:0.6.1"
+  dependencies:
+    "@eslint/core": "npm:^1.1.1"
+    levn: "npm:^0.4.1"
+  checksum: 10c0/f8354a7b92cc41e7a55d51986d192134be84f9dc0c91b5e649d075d733b56981c4ca8bf4460d54120c4c87b47984167bad2cb9bceb303f11b0a3bad22b3ed06a
   languageName: node
   linkType: hard
 
@@ -2522,7 +2532,7 @@ __metadata:
   resolution: "frontend@workspace:."
   dependencies:
     "@eslint/config-helpers": "npm:^0.5.0"
-    "@eslint/css": "npm:^0.14.0"
+    "@eslint/css": "npm:^1.0.0"
     "@eslint/js": "npm:^9.37.0"
     "@eslint/json": "npm:^0.14.0"
     "@eslint/markdown": "npm:^7.4.0"

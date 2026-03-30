@@ -5,7 +5,7 @@
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "@eslint/config-helpers": "^0.5.0",
-    "@eslint/css": "^0.14.0",
+    "@eslint/css": "^1.0.0",
     "@eslint/js": "^9.37.0",
     "@eslint/json": "^0.14.0",
     "@eslint/markdown": "^7.4.0",
